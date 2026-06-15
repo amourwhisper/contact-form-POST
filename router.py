@@ -25,6 +25,13 @@ async def contact(
             status_code=400, 
             detail="Message is required"
             )
+    with open("contact_submissions.txt", "a") as f:
+        f.write(
+            f"Name: {name}/n"
+            f"Email: {email}/n"
+            f"Message: {message}/n"
+            f"{'-'*30}/n"
+        )
     return {
         "status": "success",
         "message": "Form submitted successfully"
